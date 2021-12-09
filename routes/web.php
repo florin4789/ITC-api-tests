@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Test1Controller;
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/page1', function () {
-    return view('page1');
-});
+Route::get('/test1', [TestController::class, 'test1']);
+Route::get('/test2', [TestController::class, 'test2']);
+Route::get('/test3', [TestController::class, 'test3']);
 
-Route::get('/test1', [Test1Controller::class, 'test1']);
-
-Route::get('/custom-url', function() {
-    return redirect()->to('https://test.itc-benchmarking.edw.ro/api/v1/countries?page=0');
-});
